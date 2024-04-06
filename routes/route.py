@@ -12,6 +12,7 @@ router = APIRouter()
 
 
 # LIST ALL THE DEVELOPERS
+
 @router.get('/developers')
 async def get_devs():
   devs = list_devs(collection_name.find())
@@ -22,6 +23,7 @@ async def get_devs():
   
 
 # LIST THE FIRST DEVELOPER
+
 @router.get('/developer')
 async def get_dev():
   dev = list_dev(collection_name.find())
@@ -41,3 +43,17 @@ async def create_dev(dev: Developer):
     return {"message": "Developer created successfully"}
   else:
     raise HTTPException(status_code=500, detail="Failed to create developer")
+  
+
+# UPDATE DEVELOPER
+
+@router.put('/developer/{id}')
+async def update_dev(id: str, dev: Developer):
+  collection_name.find_one_and_update({'_id': ObjectId(id)}, {'$set': dict(dev)})
+
+
+#DELETE DEVELOPER
+
+@router.delete('/developer/{id}')
+async def delete_dev(id: str, dev: Developer):
+  collection_name.find_one_and_delete({"_id": ObjectId(id)})
