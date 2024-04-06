@@ -17,7 +17,13 @@ def developer_serializer(developer) -> dict:
   }
 
 def list_dev(developers) -> list:
-  return [list_dev(developer) for developer in developers]
+  list = [developer_serializer(developer) for developer in developers]
+  last = int(len(list)-1)
+  return list[0]
+
+def list_devs(developers) -> list:
+  return [developer_serializer(developer) for developer in developers]
+
 
 # EXPERIENCE SERIALIZER
 
