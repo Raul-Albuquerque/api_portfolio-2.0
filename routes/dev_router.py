@@ -11,14 +11,31 @@ dev_router = APIRouter()
 
 # LIST ALL THE DEVELOPERS
 
+# @dev_router.get('/developers')
+# async def get_devs():
+#   devs = list_devs(developers_collection.find())
+  
+#   if devs:
+#     return devs
+#   else:
+#     return {"message": "No developers found"}
+
+
 @dev_router.get('/developers')
 async def get_devs():
-  devs = list_devs(developers_collection.find())
-  
-  if devs:
-    return devs
-  else:
-    return {"message": "No developers found"}
+  return {
+    "full_name": "Raul Albuquerque",
+    "stack": "teste"
+    # stack: str
+    # about: str
+    # sobre: str
+    # skills: str
+    # cv_url: str
+    # whatsapp_url: str
+    # linkedin_url: str
+    # email_url: str
+    # github_url: str
+  }
   
 
 # LIST THE FIRST DEVELOPER
