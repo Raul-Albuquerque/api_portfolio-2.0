@@ -13,16 +13,18 @@ def developer_serializer(developer) -> dict:
     'whatsapp_url': developer['whatsapp_url'],
     'linkedin_url': developer['linkedin_url'],
     'email_url': developer['email_url'],
-    'github_url': developer['github_url'],
+    'github_url': developer['github_url']
   }
 
 def list_dev(developers) -> list:
-  list = [developer_serializer(developer) for developer in developers]
-  last = int(len(list)-1)
-  return list[0]
+  if developers:
+    return developer_serializer(developers[0])
+  return []
 
 def list_devs(developers) -> list:
-  return [developer_serializer(developer) for developer in developers]
+  if developers:
+    return [developer_serializer(developer) for developer in developers]
+  return []
 
 
 # EXPERIENCE SERIALIZER
@@ -39,7 +41,7 @@ def experience_serializer(experience) -> dict:
   }
 
 def list_experience(experiences) -> list:
-  return [list_experience(experience) for experience in experiences]
+  return [experience_serializer(experience) for experience in experiences]
 
 # PROJECT SERIALIZER
 
@@ -55,5 +57,5 @@ def project_serializer(project) -> dict:
   }
 
 def list_project(projects) -> list:
-  return[list_project(project) for project in projects]
+  return [project_serializer(project) for project in projects]
 
