@@ -11,31 +11,14 @@ dev_router = APIRouter()
 
 # LIST ALL THE DEVELOPERS
 
-# @dev_router.get('/developers')
-# async def get_devs():
-#   devs = list_devs(developers_collection.find())
-  
-#   if devs:
-#     return devs
-#   else:
-#     return {"message": "No developers found"}
-
-
 @dev_router.get('/developers')
 async def get_devs():
-  return {
-    "full_name": "Raul Albuquerque",
-    "stack": "teste"
-    # stack: str
-    # about: str
-    # sobre: str
-    # skills: str
-    # cv_url: str
-    # whatsapp_url: str
-    # linkedin_url: str
-    # email_url: str
-    # github_url: str
-  }
+  devs = list_devs(developers_collection.find())
+  
+  if devs:
+    return devs
+  else:
+    return {"message": "No developers found"}
   
 
 # LIST THE FIRST DEVELOPER
@@ -83,4 +66,4 @@ async def delete_dev(id: str, dev: Developer):
   if result:
     return {"message": "Developer delete successfully"}
   else:
-    raise HTTPException(status_code=500, detail="Failed to delete developer")
+    raise HTTPException(status_code=500, detail="Failed to developer")
