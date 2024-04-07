@@ -33,6 +33,7 @@ def experience_serializer(experience) -> dict:
   return {
     'id': str(experience['_id']),
     'company_name': experience['company_name'],
+    'company_image_url': experience['company_image_url'],
     'position': experience['position'],
     'cargo': experience['cargo'],
     'period': experience['period'],
