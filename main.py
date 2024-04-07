@@ -1,11 +1,18 @@
-from dotenv import load_dotenv
-import os
-import uvicorn
+from fastapi import FastAPI
+from routes.dev_router import dev_router
+from routes.exp_router import exp_router
+from routes.project_router import project_router
 
-load_dotenv()
+app=FastAPI()
 
-PORT = int(os.get('PORT', 8000))
-HOST = '0.0.0.0'
+# DEV ROUTER
 
-if __name__ == '__main__':
-  uvicorn.run('app.api:app', host = HOST, port = PORT, reload = True)
+app.include_router(dev_router)
+
+# EXP ROUTER
+
+app.include_router(exp_router)
+
+# PROJECT ROUTER
+
+app.include_router(project_router)
