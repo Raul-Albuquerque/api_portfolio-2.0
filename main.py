@@ -3,7 +3,7 @@ from routes.dev_router import dev_router
 from routes.exp_router import exp_router
 from routes.project_router import project_router
 
-app=FastAPI()
+app = FastAPI()
 
 # DEV ROUTER
 
