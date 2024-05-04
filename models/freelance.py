@@ -1,12 +1,11 @@
 from pydantic import BaseModel
 
 
-class Project(BaseModel):
+class Freelance(BaseModel):
     title: str
     image_url: str
     description: str
-    techs: str
     descricao: str
+    techs: str
     deploy_url: str
-    repo_url: str
     layout_url: str

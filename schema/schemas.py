@@ -1,6 +1,5 @@
 # DEVELOPER SERIALIZER
 
-
 def developer_serializer(developer) -> dict:
     return {
         "id": str(developer["_id"]),
@@ -29,24 +28,23 @@ def list_devs(developers) -> list:
     return []
 
 
-# EXPERIENCE SERIALIZER
+# FREELANCE SERIALIZER
 
-
-def experience_serializer(experience) -> dict:
+def freelance_serializer(freelance) -> dict:
     return {
-        "id": str(experience["_id"]),
-        "company_name": experience["company_name"],
-        "company_image_url": experience["company_image_url"],
-        "position": experience["position"],
-        "cargo": experience["cargo"],
-        "period": experience["period"],
-        "job_description": experience["job_description"],
-        "descricao": experience["descricao"],
+        "id": str(freelance["_id"]),
+        "title": freelance["title"],
+        "image_url": freelance["image_url"],
+        "description": freelance["description"],
+        "techs": freelance["techs"],
+        "descricao": freelance["descricao"],
+        "deploy_url": freelance["deploy_url"],
+        "layout_url": freelance["layout_url"]
     }
 
 
-def list_experience(experiences) -> list:
-    return [experience_serializer(experience) for experience in experiences]
+def list_freelance(freelances) -> list:
+    return [freelance_serializer(freelance) for freelance in freelances]
 
 
 # PROJECT SERIALIZER
@@ -58,9 +56,11 @@ def project_serializer(project) -> dict:
         "title": project["title"],
         "image_url": project["image_url"],
         "description": project["description"],
+        "techs": project["techs"],
         "descricao": project["descricao"],
         "deploy_url": project["deploy_url"],
         "repo_url": project["repo_url"],
+        "layout_url": project["layout_url"]
     }
 
 

@@ -18,6 +18,6 @@ developers_collection = db["developers"]
 projects_collection = db["projects"]
 
 
-# EXPERIENCES COLLECTION
+# FREELANCES COLLECTION
 
-experiences_collection = db["experiences"]
+freelances_collection = db["freelances"]
