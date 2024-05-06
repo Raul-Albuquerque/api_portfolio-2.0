@@ -4,28 +4,23 @@ def developer_serializer(developer) -> dict:
     return {
         "id": str(developer["_id"]),
         "full_name": developer["full_name"],
-        "stack": developer["stack"],
-        "skills": developer["skills"],
+        "stack_pt": developer["stack_pt"],
+        "stack_en": developer["stack_en"],
         "about": developer["about"],
         "sobre": developer["sobre"],
+        "skills": developer["skills"],
+        "resume_url": developer["resume_url"],
+        "profile_picture": developer["profile_picture"],
         "cv_url": developer["cv_url"],
         "whatsapp_url": developer["whatsapp_url"],
         "linkedin_url": developer["linkedin_url"],
         "email_url": developer["email_url"],
-        "github_url": developer["github_url"],
+        "github_url": developer["github_url"]
     }
 
-
-def list_dev(developers) -> list:
-    if developers:
-        return developer_serializer(developers[0])
-    return []
-
-
 def list_devs(developers) -> list:
-    if developers:
-        return [developer_serializer(developer) for developer in developers]
-    return []
+    return [developer_serializer(developer) for developer in developers]
+
 
 
 # FREELANCE SERIALIZER
@@ -39,7 +34,6 @@ def freelance_serializer(freelance) -> dict:
         "techs": freelance["techs"],
         "descricao": freelance["descricao"],
         "deploy_url": freelance["deploy_url"],
-        "layout_url": freelance["layout_url"]
     }
 
 
@@ -60,7 +54,6 @@ def project_serializer(project) -> dict:
         "descricao": project["descricao"],
         "deploy_url": project["deploy_url"],
         "repo_url": project["repo_url"],
-        "layout_url": project["layout_url"]
     }
 
 

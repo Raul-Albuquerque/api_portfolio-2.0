@@ -2,14 +2,14 @@ from fastapi import APIRouter, HTTPException
 from bson import ObjectId
 
 from config.database import developers_collection
-from schema.schemas import list_dev, list_devs
+from schema.schemas import list_devs
 
 from models.developer import Developer
 
 dev_router = APIRouter()
 
 
-# LIST ALL THE DEVELOPERS
+# LIST OF ALL DEVELOPERS
 
 
 @dev_router.get("/developers")
@@ -18,19 +18,6 @@ async def get_devs():
 
     if devs:
         return devs
-    else:
-        return {"message": "No developers found"}
-
-
-# LIST THE FIRST DEVELOPER
-
-
-@dev_router.get("/developer")
-async def get_dev():
-    dev = list_dev(developers_collection.find())
-
-    if dev:
-        return dev
     else:
         return {"message": "No developers found"}
 
